@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Activity, CheckCircle, TrendingUp, Calendar, LogOut, User as UserIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Users, Activity, CheckCircle, TrendingUp, Calendar, LogOut, User as UserIcon, ArrowLeft } from 'lucide-react';
 import { adminAPI } from '../services/adminApi';
 import { useAuth } from '../context/AuthContext';
 
@@ -33,6 +34,7 @@ interface Stats {
 
 const AdminDashboard: React.FC = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [stats, setStats] = useState<Stats | null>(null);
   const [members, setMembers] = useState<Member[]>([]);
   const [checkins, setCheckins] = useState<CheckIn[]>([]);
@@ -97,13 +99,22 @@ const AdminDashboard: React.FC = () => {
               Welcome, {user?.name}
             </p>
           </div>
-          <button
-            onClick={logout}
-            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 uppercase tracking-widest text-xs font-bold transition-colors"
-          >
-            <LogOut className="w-4 h-4" />
-            Sign Out
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => navigate('/dashboard')}
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 uppercase tracking-widest text-xs font-bold transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              My Dashboard
+            </button>
+            <button
+              onClick={logout}
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 uppercase tracking-widest text-xs font-bold transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              Sign Out
+            </button>
+          </div>
         </div>
       </div>
 

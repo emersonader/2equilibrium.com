@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Play, Calendar, MessageSquare, Star, ArrowUpRight, Lock, X, Send, CheckCircle, Video, Activity, LogOut } from 'lucide-react';
 import { ChartDataPoint } from '../types';
 import { checkInAPI, progressAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
-interface DashboardProps {
-  onAdminToggle?: () => void;
-}
-
-const Dashboard: React.FC<DashboardProps> = ({ onAdminToggle }) => {
+const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [checkInStep, setCheckInStep] = useState<'form' | 'success'>('form');
   const [progressData, setProgressData] = useState<ChartDataPoint[]>([]);
@@ -100,9 +98,9 @@ const Dashboard: React.FC<DashboardProps> = ({ onAdminToggle }) => {
               <CheckCircle className="w-4 h-4" />
               Weekly Check-In
             </button>
-            {onAdminToggle && (
+            {user?.isAdmin && (
               <button
-                onClick={onAdminToggle}
+                onClick={() => navigate('/admin')}
                 className="flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-navy text-white transition-all duration-300 px-8 py-3 uppercase tracking-widest text-xs font-bold"
               >
                 <Star className="w-4 h-4" />
