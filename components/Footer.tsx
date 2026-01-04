@@ -28,6 +28,12 @@ const Footer: React.FC = () => {
             >
               Approach
             </Link>
+            <Link
+              to="/blog"
+              className="text-xs uppercase tracking-[0.2em] text-brand-navy/60 hover:text-brand-gold transition-colors"
+            >
+              Blog
+            </Link>
           </nav>
         </div>
 

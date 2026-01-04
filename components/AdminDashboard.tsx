@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Users, Activity, CheckCircle, TrendingUp, Calendar, LogOut, User as UserIcon, ArrowLeft } from 'lucide-react';
-import { adminAPI } from '../services/adminApi';
+import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
 
 interface Member {
@@ -47,17 +47,110 @@ const AdminDashboard: React.FC = () => {
   }, []);
 
   const loadData = async () => {
+    if (!user?.isAdmin) return;
+
     try {
       setLoading(true);
-      const [statsData, membersData, checkinsData] = await Promise.all([
-        adminAPI.getStats(),
-        adminAPI.getMembers(),
-        adminAPI.getCheckins(20)
-      ]);
 
-      setStats(statsData);
-      setMembers(membersData);
-      setCheckins(checkinsData);
+      // Get all members with check-in counts
+      const { data: profilesData, error: profilesError } = await supabase
+        .from('profiles')
+        .select(`
+          id,
+          email,
+          name,
+          tier,
+          created_at
+        `)
+        .order('created_at', { ascending: false });
+
+      if (profilesError) throw profilesError;
+
+      // Get check-in counts for each member
+      const { data: checkInCounts, error: countsError } = await supabase
+        .from('check_ins')
+        .select('user_id')
+        .order('created_at', { ascending: false });
+
+      if (countsError) throw countsError;
+
+      // Get last check-in dates
+      const { data: lastCheckIns, error: lastError } = await supabase
+        .rpc('get_last_checkins');
+
+      // Calculate members with check-in data
+      const membersWithData: Member[] = (profilesData || []).map((profile) => {
+        const userCheckIns = checkInCounts?.filter(c => c.user_id === profile.id) || [];
+        return {
+          id: profile.id as any,
+          name: profile.name || profile.email,
+          email: profile.email,
+          tier: profile.tier,
+          created_at: profile.created_at,
+          total_checkins: userCheckIns.length,
+          last_checkin: null
+        };
+      });
+
+      setMembers(membersWithData);
+
+      // Get recent check-ins with user info
+      const { data: checkinsData, error: checkinsError } = await supabase
+        .from('check_ins')
+        .select(`
+          id,
+          user_id,
+          weight,
+          energy_level,
+          notes,
+          created_at,
+          profiles!inner(name, email)
+        `)
+        .order('created_at', { ascending: false })
+        .limit(20);
+
+      if (checkinsError) throw checkinsError;
+
+      const formattedCheckIns: CheckIn[] = (checkinsData || []).map((item: any) => ({
+        id: item.id,
+        user_id: item.user_id,
+        user_name: item.profiles?.name || item.profiles?.email || 'Unknown',
+        user_email: item.profiles?.email || '',
+        weight: item.weight,
+        energy_level: item.energy_level,
+        notes: item.notes,
+        created_at: item.created_at
+      }));
+
+      setCheckins(formattedCheckIns);
+
+      // Calculate stats
+      const totalMembers = membersWithData.length;
+      const totalCheckins = checkInCounts?.length || 0;
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      const recentCheckins = checkInCounts?.filter(c =>
+        new Date((checkinsData?.find(ci => ci.id === c.user_id) as any)?.created_at || 0) > oneWeekAgo
+      ).length || 0;
+
+      // Group members by tier
+      const tierCounts = membersWithData.reduce((acc: any, member) => {
+        acc[member.tier] = (acc[member.tier] || 0) + 1;
+        return acc;
+      }, {});
+
+      const membersByTier = Object.entries(tierCounts).map(([tier, count]) => ({
+        tier,
+        count: count as number
+      }));
+
+      setStats({
+        totalMembers,
+        totalCheckins,
+        recentCheckins,
+        membersByTier
+      });
+
     } catch (error) {
       console.error('Failed to load admin data:', error);
     } finally {

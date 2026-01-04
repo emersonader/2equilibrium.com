@@ -14,6 +14,7 @@ const PublicNavigation: React.FC = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/approach', label: 'Approach' },
+    { path: '/blog', label: 'Blog' },
   ];
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);

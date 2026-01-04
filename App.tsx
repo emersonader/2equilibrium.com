@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ApproachPage from './components/ApproachPage';
+import BlogPage from './components/BlogPage';
+import BlogPost from './components/BlogPost';
 import Dashboard from './components/Dashboard';
 import AdminDashboard from './components/AdminDashboard';
 import PublicLayout from './components/PublicLayout';
@@ -37,6 +39,8 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/approach" element={<ApproachPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:postId" element={<BlogPost />} />
         </Route>
 
         {/* Protected User Routes */}

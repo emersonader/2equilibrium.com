@@ -6,24 +6,24 @@ const ApproachPage: React.FC = () => {
 
   const faqs = [
     {
-      question: 'How do I start a consultation with 2Equilibrium?',
-      answer: 'To begin, simply reach out through our free video call to schedule an initial consultation. We\'ll discuss your goals and tailor a plan to suit your needs.'
+      question: 'How does the 2Equilibrium app work?',
+      answer: 'The 2Equilibrium app is your comprehensive wellness companion. After creating your profile, you\'ll receive a personalized wellness plan based on your goals, preferences, and lifestyle. The app guides you through daily nutrition recommendations, mindful eating practices, progress tracking, and educational content—all designed to create sustainable transformation.'
     },
     {
-      question: 'What communication methods are available?',
-      answer: 'We offer multiple communication channels including video calls, email, and direct messaging to ensure you have the support you need when you need it.'
+      question: 'Is this another diet program?',
+      answer: 'No. 2Equilibrium is a holistic wellness system, not a restrictive diet. We focus on building sustainable habits, understanding your relationship with food, and integrating wellness into your lifestyle. The app teaches you principles of balanced nutrition, mindful eating, and stress management that last a lifetime—not just weeks.'
     },
     {
-      question: 'How personalized are the plans?',
-      answer: 'Every plan is completely customized to your unique lifestyle, preferences, dietary needs, and wellness goals. No two plans are the same.'
+      question: 'How is my plan personalized without personal coaching?',
+      answer: 'The app uses intelligent algorithms and evidence-based frameworks to create a plan tailored to your unique profile. You\'ll complete an in-depth assessment covering your health history, dietary preferences, lifestyle habits, and goals. The app then generates customized meal suggestions, movement recommendations, and wellness strategies specifically for you.'
     },
     {
-      question: 'Can I adjust my plan as my needs change?',
-      answer: 'Absolutely! Your plan evolves with you. We provide ongoing support and make necessary adjustments to ensure your plan continues to meet your changing needs.'
+      question: 'Can I track my progress in the app?',
+      answer: 'Absolutely! The 2Equilibrium app includes comprehensive tracking features for weight, energy levels, mood, measurements, and daily habits. Visual charts and progress analytics help you see your transformation over time. Weekly check-ins allow you to reflect on what\'s working and adjust your approach as needed.'
     },
     {
-      question: 'What support is available after the initial consultation?',
-      answer: 'You\'ll receive continuous support through regular check-ins, progress reviews, and direct access to Graziella for guidance and accountability.'
+      question: 'What if I need help or have questions while using the app?',
+      answer: 'The app includes an extensive knowledge library with articles, videos, and guides covering nutrition, wellness practices, and common challenges. You\'ll also find FAQ sections, troubleshooting tips, and community forums where you can connect with others on similar journeys. The app is designed to be your complete wellness resource.'
     },
   ];
 
@@ -52,7 +52,7 @@ const ApproachPage: React.FC = () => {
           <div className="relative h-[400px] md:h-[500px] w-full">
             <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
             <img
-              src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2853&auto=format&fit=crop"
+              src="/images/Florhome.png"
               alt="Healthy Food and Wellness"
               className="absolute inset-0 w-full h-full object-cover z-10 shadow-2xl"
             />
@@ -60,47 +60,62 @@ const ApproachPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 3-Step Process Section */}
+      {/* Core Pillars Section */}
       <section className="py-24 bg-brand-cream">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-4 text-center">
-            Crafting Your Personalized Plan
+            The 2Equilibrium Method
           </h2>
           <p className="text-brand-gold uppercase tracking-widest text-xs text-center mb-16">
-            Our Process
+            Six Pillars of Transformation
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="bg-brand-white p-8 shadow-lg relative">
-              <div className="absolute -top-6 left-8 bg-brand-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
-                1
-              </div>
-              <h3 className="font-serif text-2xl text-brand-navy mb-4 mt-4">Initial Consultation</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Pillar 1 */}
+            <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="font-serif text-2xl text-brand-navy mb-4">Balanced Lifestyle Plan</h3>
               <p className="text-brand-navy/70 leading-relaxed">
-                Our process begins with understanding your unique lifestyle, preferences, and goals. We believe that a one-size-fits-all approach doesn't work, which is why we take the time to get to know you.
+                We don't believe in restrictive diets or unsustainable habits. Our approach integrates wellness seamlessly into your existing life, creating harmony between your health goals and daily responsibilities. This means real, lasting transformation without burnout.
               </p>
             </div>
 
-            {/* Step 2 */}
-            <div className="bg-brand-white p-8 shadow-lg relative">
-              <div className="absolute -top-6 left-8 bg-brand-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
-                2
-              </div>
-              <h3 className="font-serif text-2xl text-brand-navy mb-4 mt-4">Customized Plan Creation</h3>
+            {/* Pillar 2 */}
+            <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="font-serif text-2xl text-brand-navy mb-4">Mindful Eating Strategies</h3>
               <p className="text-brand-navy/70 leading-relaxed">
-                Next, we design a tailored plan that aligns with your daily routine and dietary preferences. This ensures that the plan is not only effective but also sustainable in the long run.
+                Learn to reconnect with your body's natural signals and develop a healthier relationship with food. Through mindfulness techniques, you'll discover how to make intuitive choices that support both your physical health and emotional well-being.
               </p>
             </div>
 
-            {/* Step 3 */}
-            <div className="bg-brand-white p-8 shadow-lg relative">
-              <div className="absolute -top-6 left-8 bg-brand-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
-                3
-              </div>
-              <h3 className="font-serif text-2xl text-brand-navy mb-4 mt-4">Ongoing Support and Adjustment</h3>
+            {/* Pillar 3 */}
+            <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="font-serif text-2xl text-brand-navy mb-4">Tailored Nutrition Plans</h3>
               <p className="text-brand-navy/70 leading-relaxed">
-                Finally, we provide ongoing support and make necessary adjustments to your plan, ensuring that it evolves with you and continues to meet your changing needs.
+                You will learn how to design a specific nutritional plan—considering your preferences, lifestyle, genetic predispositions, and health objectives. No cookie-cutter meal plans here. Every recommendation is crafted to ensure you actually enjoy the process.
+              </p>
+            </div>
+
+            {/* Pillar 4 */}
+            <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="font-serif text-2xl text-brand-navy mb-4">Holistic Wellness Approach</h3>
+              <p className="text-brand-navy/70 leading-relaxed">
+                True transformation extends beyond the scale. We address stress management, sleep quality, mindset shifts, and emotional health alongside nutrition and movement. When all aspects of wellness align, sustainable change becomes inevitable.
+              </p>
+            </div>
+
+            {/* Pillar 5 */}
+            <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="font-serif text-2xl text-brand-navy mb-4">Community Engagement</h3>
+              <p className="text-brand-navy/70 leading-relaxed">
+                You're not alone on this journey. Join a supportive community of like-minded individuals who understand your challenges and celebrate your wins. Shared experiences, accountability, and encouragement create momentum that individual effort alone cannot achieve.
+              </p>
+            </div>
+
+            {/* Pillar 6 */}
+            <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="font-serif text-2xl text-brand-navy mb-4">Innovative Approach</h3>
+              <p className="text-brand-navy/70 leading-relaxed">
+                Combining cutting-edge science with proven coaching methodologies, we leverage genetics-based insights, positive psychology, and personalized strategies. This isn't another fad diet—it's an evidence-based system designed for your unique biology and psychology.
               </p>
             </div>
           </div>

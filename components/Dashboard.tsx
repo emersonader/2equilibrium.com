@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Play, Calendar, MessageSquare, Star, ArrowUpRight, Lock, X, Send, CheckCircle, Video, Activity, LogOut } from 'lucide-react';
 import { ChartDataPoint } from '../types';
-import { checkInAPI, progressAPI } from '../services/api';
+import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
 
 const Dashboard: React.FC = () => {
@@ -25,18 +25,37 @@ const Dashboard: React.FC = () => {
   }, []);
 
   const loadProgressData = async () => {
+    if (!user) return;
+
     try {
       setLoadingProgress(true);
-      const data = await progressAPI.getData();
-      setProgressData(data.length > 0 ? data : [
-        { day: 'Mon', weight: 0, energy: 0 },
-        { day: 'Tue', weight: 0, energy: 0 },
-        { day: 'Wed', weight: 0, energy: 0 },
-        { day: 'Thu', weight: 0, energy: 0 },
-        { day: 'Fri', weight: 0, energy: 0 },
-        { day: 'Sat', weight: 0, energy: 0 },
-        { day: 'Sun', weight: 0, energy: 0 },
-      ]);
+      const { data, error } = await supabase
+        .from('progress_data')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('date', { ascending: true })
+        .limit(7);
+
+      if (error) throw error;
+
+      // Transform Supabase data to chart format
+      const chartData: ChartDataPoint[] = data && data.length > 0
+        ? data.map((item) => ({
+            day: new Date(item.date).toLocaleDateString('en-US', { weekday: 'short' }),
+            weight: item.weight || 0,
+            energy: item.energy_level || 0,
+          }))
+        : [
+            { day: 'Mon', weight: 0, energy: 0 },
+            { day: 'Tue', weight: 0, energy: 0 },
+            { day: 'Wed', weight: 0, energy: 0 },
+            { day: 'Thu', weight: 0, energy: 0 },
+            { day: 'Fri', weight: 0, energy: 0 },
+            { day: 'Sat', weight: 0, energy: 0 },
+            { day: 'Sun', weight: 0, energy: 0 },
+          ];
+
+      setProgressData(chartData);
     } catch (error) {
       console.error('Failed to load progress data:', error);
     } finally {
@@ -46,12 +65,38 @@ const Dashboard: React.FC = () => {
 
   const submitCheckIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!user) return;
+
     try {
-      await checkInAPI.submit(
-        parseFloat(checkInData.weight),
-        parseInt(checkInData.energyLevel),
-        checkInData.notes
-      );
+      const weight = parseFloat(checkInData.weight);
+      const energyLevel = parseInt(checkInData.energyLevel);
+
+      // Insert check-in
+      const { error: checkInError } = await supabase
+        .from('check_ins')
+        .insert([{
+          user_id: user.id,
+          weight: weight || null,
+          energy_level: energyLevel || null,
+          notes: checkInData.notes || null,
+        }]);
+
+      if (checkInError) throw checkInError;
+
+      // Update progress data
+      const { error: progressError } = await supabase
+        .from('progress_data')
+        .upsert([{
+          user_id: user.id,
+          date: new Date().toISOString().split('T')[0],
+          weight: weight || null,
+          energy_level: energyLevel || null,
+        }], {
+          onConflict: 'user_id,date'
+        });
+
+      if (progressError) throw progressError;
+
       setCheckInStep('success');
       setCheckInData({ weight: '', energyLevel: '', notes: '' });
       loadProgressData();
