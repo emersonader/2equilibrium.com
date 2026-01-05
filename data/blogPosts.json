@@ -1,0 +1,78 @@
+[
+  {
+    "id": "welcome-to-2equilibrium",
+    "title": "Welcome to 2Equilibrium: Your Journey Begins Here",
+    "author": "Graziella De Souza",
+    "date": "2026-01-04",
+    "image": "/images/Florhome.png",
+    "excerpt": "Discover how 2Equilibrium can transform your wellness journey through our proven 6-month program starting with the 30-day Foundation phase.",
+    "content": [
+      {
+        "type": "text",
+        "value": "Welcome to the 2Equilibrium blog! I'm thrilled to share this space with you as we explore wellness, balance, and sustainable transformation together."
+      },
+      {
+        "type": "heading",
+        "value": "Why I Created 2Equilibrium"
+      },
+      {
+        "type": "text",
+        "value": "After years of coaching clients one-on-one, I realized that sustainable wellness isn't about restriction or punishment—it's about finding your equilibrium. The 2Equilibrium app is my way of sharing everything I've learned with more people, making expert guidance accessible to anyone ready to transform their life."
+      },
+      {
+        "type": "image",
+        "src": "/images/GraziellaBio.jpg",
+        "alt": "Graziella De Souza",
+        "caption": "Your wellness guide"
+      },
+      {
+        "type": "heading",
+        "value": "What Makes Us Different"
+      },
+      {
+        "type": "text",
+        "value": "Unlike other wellness programs, we focus on gentle, progressive change. Our 30-day Foundation phase unlocks one lesson per day—no overwhelm, just steady growth. You'll learn mindful eating, gentle movement, and self-compassion practices that actually stick."
+      },
+      {
+        "type": "text",
+        "value": "Ready to begin? Download the app and start your free trial today!"
+      }
+    ],
+    "tags": ["wellness", "introduction", "getting started"]
+  },
+  {
+    "id": "mindful-eating-basics",
+    "title": "The Power of Mindful Eating: Transform Your Relationship with Food",
+    "author": "Graziella De Souza",
+    "date": "2026-01-03",
+    "image": "/images/Florhome.png",
+    "excerpt": "Learn how mindful eating can revolutionize your wellness journey and help you create a sustainable, joyful relationship with food.",
+    "content": [
+      {
+        "type": "text",
+        "value": "Mindful eating isn't just about what you eat—it's about how you eat. This simple practice can transform your entire wellness journey."
+      },
+      {
+        "type": "heading",
+        "value": "What is Mindful Eating?"
+      },
+      {
+        "type": "text",
+        "value": "Mindful eating means paying full attention to the experience of eating. It's about noticing the colors, smells, textures, and flavors of your food. It's about eating without distraction and truly savoring each bite."
+      },
+      {
+        "type": "heading",
+        "value": "5 Simple Steps to Start"
+      },
+      {
+        "type": "text",
+        "value": "1. Eliminate distractions - Turn off the TV, put away your phone\n2. Take three deep breaths before eating\n3. Notice the appearance and aroma of your food\n4. Chew slowly - aim for 20-30 chews per bite\n5. Put your fork down between bites"
+      },
+      {
+        "type": "text",
+        "value": "These practices are covered in detail in our 30-day Foundation phase. Ready to dive deeper? Join us in the app!"
+      }
+    ],
+    "tags": ["mindful eating", "nutrition", "habits"]
+  }
+]

@@ -12,8 +12,9 @@ dist
 dist-ssr
 *.local
 
-# Database
-data/
+# Database (old SQLite files)
+data/*.db
+data/*.db-*
 
 # Environment variables
 .env
