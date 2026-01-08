@@ -7,10 +7,9 @@
 **Tech Stack (100% Free):**
 - Frontend: React 19 + TypeScript + Vite
 - Routing: React Router v6
-- Backend: Node.js + Express
-- Database: SQLite (file-based)
-- Authentication: JWT
-- Email: Nodemailer (Gmail)
+- Backend: Supabase (Auth, Database, Edge Functions)
+- Database: PostgreSQL (via Supabase)
+- Authentication: Supabase Auth
 - UI: Custom design with Lucide icons + Recharts
 
 ## Features
@@ -34,11 +33,9 @@
 - Weekly guidance videos
 
 ### 🔐 Authentication System
-- Secure JWT-based authentication
-- Email/password registration and login
-- Password hashing with bcrypt
-- Protected API routes
-- Persistent sessions with localStorage
+- Supabase Auth integration
+- Persistent sessions
+- Protected routes via PrivateRoute component
 
 ### 📊 Admin Dashboard
 - **Overview Tab:**
@@ -67,20 +64,13 @@
 - Gmail integration (500 emails/day free)
 - Professional HTML email templates
 
-### 💾 Database Schema
-```sql
-users:
-  - id, email, password, name, tier, is_admin, created_at
+### 💾 Database Schema (Supabase)
+See `supabase-schema.sql` for full definition.
 
-check_ins:
-  - id, user_id, weight, energy_level, notes, created_at
-
-progress_data:
-  - id, user_id, date, weight, energy_level
-
-messages:
-  - id, user_id, sender, message, created_at (for future features)
-```
+- **profiles**: User data extending Supabase auth
+- **check_ins**: Weekly progress entries
+- **progress_data**: Daily tracking metrics
+- **messages**: Future messaging capability
 
 ## Getting Started
 
@@ -96,66 +86,29 @@ messages:
    npm install
    ```
 
-2. **Start development servers:**
+3. **Run the app:**
    ```bash
    npm run dev
    ```
-   This runs both frontend (port 3000) and backend (port 3001) concurrently.
 
-3. **Access the app:**
-   - Frontend: http://localhost:3000/
-   - Backend API: http://localhost:3001/
+4. **Access the app:**
+   - http://localhost:3000/
 
-### Creating an Admin User
-
-1. **Register a new account** at http://localhost:3000/
-
-2. **Make yourself admin:**
-   ```bash
-   npm run make-admin your-email@example.com
-   ```
-
-3. **Log out and log back in** to see the "Admin Panel" button
 
 ## Project Structure
 
 ```
 2equilibrium-by-graziella-de-souza/
-├── components/
-│   ├── AboutPage.tsx            # About Graziella page
-│   ├── AdminDashboard.tsx       # Admin panel interface
-│   ├── ApproachPage.tsx         # Our approach page
-│   ├── AuthModal.tsx            # Login/register modal
-│   ├── Dashboard.tsx            # Member dashboard
-│   ├── Footer.tsx               # Shared footer component
-│   ├── HomePage.tsx             # Home/landing page
-│   ├── LandingPage.tsx          # Legacy landing page (deprecated)
-│   ├── PublicLayout.tsx         # Layout wrapper for public pages
-│   └── PublicNavigation.tsx     # Shared navigation component
-├── context/
-│   └── AuthContext.tsx          # Authentication state
-├── data/
-│   └── equilibrium.db           # SQLite database
-├── scripts/
-│   └── make-admin.ts            # Admin creation script
-├── server/
-│   ├── routes/
-│   │   ├── admin.routes.ts      # Admin API endpoints
-│   │   ├── auth.routes.ts       # Auth endpoints
-│   │   ├── checkin.routes.ts    # Check-in endpoints
-│   │   └── progress.routes.ts   # Progress data endpoints
-│   ├── auth.ts                  # JWT auth logic
-│   ├── database.ts              # Database schema
-│   ├── email.ts                 # Email service
-│   └── index.ts                 # Express server
-├── services/
-│   ├── adminApi.ts              # Admin API client
-│   └── api.ts                   # User API client
-├── .env.local                   # Environment variables
-├── ADMIN.md                     # Admin features guide
-├── CLAUDE.md                    # This file
-├── EMAIL_SETUP.md               # Email configuration guide
-└── package.json
+├── components/          # React components
+├── context/             # React context (Auth, etc.)
+├── data/                # Local data assets
+├── lib/                 # Supabase client & utilities
+├── services/            # API services
+├── .env.local           # Environment variables
+├── CLAUDE.md            # This file
+├── supabase-schema.sql  # Database definitions
+├── index.html           # Entry point
+└── package.json         # Project dependencies
 ```
 
 ## API Endpoints
