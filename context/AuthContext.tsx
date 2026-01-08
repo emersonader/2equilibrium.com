@@ -33,8 +33,50 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       .eq('id', authUser.id)
       .single();
 
-    if (error || !profile) {
-      console.error('Error fetching profile:', error);
+    if (error) {
+      console.error('Error fetching profile:', {
+        message: error?.message,
+        details: error?.details,
+        hint: error?.hint,
+        code: error?.code
+      });
+
+      // If profile doesn't exist (PGRST116), try to create it
+      if (error.code === 'PGRST116') {
+        console.log('Profile not found, attempting to create...');
+        const { data: newProfile, error: insertError } = await supabase
+          .from('profiles')
+          .insert({
+            id: authUser.id,
+            email: authUser.email!,
+            name: authUser.user_metadata?.name || authUser.email!,
+            tier: 'foundation',
+            is_admin: false
+          })
+          .select()
+          .single();
+
+        if (insertError) {
+          console.error('Error creating profile:', insertError);
+          return null;
+        }
+
+        if (newProfile) {
+          return {
+            id: newProfile.id,
+            email: newProfile.email,
+            name: newProfile.name || newProfile.email,
+            tier: newProfile.tier,
+            isAdmin: newProfile.is_admin
+          };
+        }
+      }
+
+      return null;
+    }
+
+    if (!profile) {
+      console.error('Profile is null despite no error');
       return null;
     }
 
