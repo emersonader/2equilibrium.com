@@ -101,10 +101,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log('🔔 Auth state changed:', event);
+
       if (session?.user) {
+        console.log('👤 Session exists, fetching profile for:', session.user.email);
         const profile = await fetchUserProfile(session.user);
-        setUser(profile);
+
+        if (profile) {
+          console.log('✅ Profile set in context:', profile.email);
+          setUser(profile);
+        } else {
+          console.error('❌ Profile fetch failed in auth state listener');
+          setUser(null);
+        }
       } else {
+        console.log('👤 No session, clearing user');
         setUser(null);
       }
       setLoading(false);
@@ -163,30 +174,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       console.log('✅ Authentication successful');
+      console.log('✅ Auth state listener will handle profile loading');
 
-      if (data.user && data.session) {
-        console.log('⏱️  Waiting for session to be fully established...');
-        // Wait a moment for session to be fully set in Supabase client
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        console.log('👤 Fetching user profile...');
-        const profile = await fetchUserProfile(data.user);
-
-        if (!profile) {
-          console.error('❌ Profile fetch returned null');
-          throw new Error('Failed to load user profile. Please try again or contact support.');
-        }
-
-        console.log('✅ Profile loaded successfully:', profile.email);
-        setUser(profile);
-      }
+      // Don't manually fetch profile - let the onAuthStateChange listener handle it
+      // This ensures the session is properly set in the Supabase client
     } catch (error: any) {
       console.error('❌ Login failed:', error.message);
-      throw new Error(error.message || 'Login failed');
-    } finally {
-      console.log('🏁 Login process complete');
       setLoading(false);
+      throw new Error(error.message || 'Login failed');
     }
+    // Note: loading state will be cleared by onAuthStateChange listener
   };
 
   const logout = async () => {
