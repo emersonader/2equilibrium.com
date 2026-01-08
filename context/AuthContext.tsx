@@ -27,19 +27,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Fetch user profile from database
   const fetchUserProfile = async (authUser: SupabaseUser): Promise<User | null> => {
-    const { data: profile, error } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', authUser.id)
-      .single();
+    console.log('🔍 fetchUserProfile called for user:', authUser.id);
 
-    if (error) {
-      console.error('Error fetching profile:', {
-        message: error?.message,
-        details: error?.details,
-        hint: error?.hint,
-        code: error?.code
-      });
+    try {
+      console.log('📡 Executing Supabase query...');
+      const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', authUser.id)
+        .single();
+
+      console.log('📦 Query response received');
+
+      if (error) {
+        console.error('❌ Error fetching profile:', {
+          message: error?.message,
+          details: error?.details,
+          hint: error?.hint,
+          code: error?.code
+        });
 
       // If profile doesn't exist (PGRST116), try to create it
       if (error.code === 'PGRST116') {
@@ -72,21 +78,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
       }
 
+        return null;
+      }
+
+      if (!profile) {
+        console.error('⚠️ Profile is null despite no error');
+        return null;
+      }
+
+      console.log('✅ Profile data received:', { email: profile.email, tier: profile.tier });
+
+      return {
+        id: profile.id,
+        email: profile.email,
+        name: profile.name || profile.email,
+        tier: profile.tier,
+        isAdmin: profile.is_admin
+      };
+    } catch (err: any) {
+      console.error('💥 Exception in fetchUserProfile:', err);
       return null;
     }
-
-    if (!profile) {
-      console.error('Profile is null despite no error');
-      return null;
-    }
-
-    return {
-      id: profile.id,
-      email: profile.email,
-      name: profile.name || profile.email,
-      tier: profile.tier,
-      isAdmin: profile.is_admin
-    };
   };
 
   // Initialize auth state
