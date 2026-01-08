@@ -164,7 +164,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       console.log('✅ Authentication successful');
 
-      if (data.user) {
+      if (data.user && data.session) {
+        console.log('⏱️  Waiting for session to be fully established...');
+        // Wait a moment for session to be fully set in Supabase client
+        await new Promise(resolve => setTimeout(resolve, 500));
+
         console.log('👤 Fetching user profile...');
         const profile = await fetchUserProfile(data.user);
 
