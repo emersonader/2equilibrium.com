@@ -131,8 +131,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (data.user) {
         // Profile will be created automatically by database trigger
         // Wait a moment for trigger to execute
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const profile = await fetchUserProfile(data.user);
+
+        if (!profile) {
+          throw new Error('Failed to create user profile. Please try again or contact support.');
+        }
+
         setUser(profile);
       }
     } catch (error: any) {
@@ -143,22 +148,39 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const login = async (email: string, password: string) => {
+    console.log('🔐 Starting login process...');
     setLoading(true);
     try {
+      console.log('📡 Authenticating with Supabase...');
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('❌ Authentication error:', error);
+        throw error;
+      }
+
+      console.log('✅ Authentication successful');
 
       if (data.user) {
+        console.log('👤 Fetching user profile...');
         const profile = await fetchUserProfile(data.user);
+
+        if (!profile) {
+          console.error('❌ Profile fetch returned null');
+          throw new Error('Failed to load user profile. Please try again or contact support.');
+        }
+
+        console.log('✅ Profile loaded successfully:', profile.email);
         setUser(profile);
       }
     } catch (error: any) {
+      console.error('❌ Login failed:', error.message);
       throw new Error(error.message || 'Login failed');
     } finally {
+      console.log('🏁 Login process complete');
       setLoading(false);
     }
   };
