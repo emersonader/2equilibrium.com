@@ -1,5 +1,25 @@
 # 2Equilibrium - Complete Project Documentation
 
+## Session Commands
+
+**IMPORTANT:** The user has set up two commands for session management:
+
+### `/read`
+When the user says `/read`, immediately read the `STATUS.md` file to understand:
+- Current project state
+- Recent changes made
+- Pending next steps
+- Database status
+
+### `/update`
+When the user says `/update`, update the `STATUS.md` file with:
+- New changes made during the session
+- Updated next steps
+- Any new notes or status changes
+- Update the "Last Updated" date
+
+---
+
 ## Project Overview
 
 **2Equilibrium by Graziella De Souza** is a premium coaching platform built with React, TypeScript, and Node.js. This platform enables high-end fitness and lifestyle coaching with member management, progress tracking, and admin capabilities.

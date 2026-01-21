@@ -1,20 +1,25 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 console.log('🔧 Supabase Configuration:');
-console.log('  URL:', supabaseUrl ? '✅ Set' : '❌ Missing');
-console.log('  Anon Key:', supabaseAnonKey ? '✅ Set' : '❌ Missing');
+console.log('  URL:', supabaseUrl ? '✅ Set' : '❌ Missing (Demo Mode)');
+console.log('  Anon Key:', supabaseAnonKey ? '✅ Set' : '❌ Missing (Demo Mode)');
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('❌ Missing Supabase environment variables!');
-  throw new Error('Missing Supabase environment variables');
+// Demo mode flag
+export const isDemoMode = !supabaseUrl || !supabaseAnonKey;
+
+let supabase: SupabaseClient | null = null;
+
+if (!isDemoMode) {
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
+  console.log('✅ Supabase client initialized');
+} else {
+  console.log('⚠️ Running in Demo Mode - no database connection');
 }
 
-console.log('✅ Supabase client initialized');
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export { supabase };
 
 // Database Types
 export type Profile = {

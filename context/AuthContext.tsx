@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { supabase, type Profile } from '../lib/supabase';
+import { supabase, isDemoMode, type Profile } from '../lib/supabase';
 import type { User as SupabaseUser } from '@supabase/supabase-js';
 
 export interface User {
@@ -17,6 +17,7 @@ interface AuthContextType {
   register: (email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
   loading: boolean;
+  isDemoMode: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -27,6 +28,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Fetch user profile from database
   const fetchUserProfile = async (authUser: SupabaseUser): Promise<User | null> => {
+    if (isDemoMode || !supabase) return null;
+
     console.log('🔍 fetchUserProfile called for user:', authUser.id);
 
     try {
@@ -115,6 +118,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Initialize auth state
   useEffect(() => {
+    if (isDemoMode || !supabase) {
+      console.log('⚠️ Running in Demo Mode - authentication disabled');
+      setLoading(false);
+      return;
+    }
+
     // Check active session
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
@@ -149,6 +158,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const register = async (email: string, password: string, name: string) => {
+    if (isDemoMode || !supabase) {
+      throw new Error('Registration is not available in demo mode. Please configure Supabase.');
+    }
+
     setLoading(true);
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -183,6 +196,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const login = async (email: string, password: string) => {
+    if (isDemoMode || !supabase) {
+      throw new Error('Login is not available in demo mode. Please configure Supabase.');
+    }
+
     console.log('🔐 Starting login process...');
     setLoading(true);
     try {
@@ -211,6 +228,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const logout = async () => {
+    if (isDemoMode || !supabase) {
+      setUser(null);
+      return;
+    }
+
     setLoading(true);
     try {
       const { error } = await supabase.auth.signOut();
@@ -231,7 +253,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         login,
         register,
         logout,
-        loading
+        loading,
+        isDemoMode
       }}
     >
       {children}
