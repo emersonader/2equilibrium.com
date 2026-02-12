@@ -243,16 +243,16 @@ const Dashboard: React.FC = () => {
                       <YAxis stroke="#94a3b8" tick={{fontSize: 12, fill: '#64748b'}} tickLine={false} axisLine={false} domain={['dataMin - 1', 'dataMax + 1']} />
                       <Tooltip 
                         contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', color: '#0F172A', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                        itemStyle={{ color: '#BFA15F' }}
-                        cursor={{ stroke: '#BFA15F', strokeWidth: 1, strokeDasharray: '4 4' }}
+                        itemStyle={{ color: '#E67E22' }}
+                        cursor={{ stroke: '#E67E22', strokeWidth: 1, strokeDasharray: '4 4' }}
                       />
                       <Line 
                         type="monotone" 
                         dataKey="weight" 
-                        stroke="#0B1C33" 
+                        stroke="#1F2937" 
                         strokeWidth={2} 
-                        dot={{ fill: '#FFFFFF', stroke: '#0B1C33', strokeWidth: 2, r: 4 }}
-                        activeDot={{ r: 6, fill: '#BFA15F', stroke: 'none' }}
+                        dot={{ fill: '#FFFFFF', stroke: '#1F2937', strokeWidth: 2, r: 4 }}
+                        activeDot={{ r: 6, fill: '#0ABAB5', stroke: 'none' }}
                       />
                     </LineChart>
                   </ResponsiveContainer>
