@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import AuthModal from './AuthModal';
 
 const PublicNavigation: React.FC = () => {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -18,6 +16,13 @@ const PublicNavigation: React.FC = () => {
   ];
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  const scrollToDownload = () => {
+    const element = document.getElementById('download');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -44,10 +49,10 @@ const PublicNavigation: React.FC = () => {
               </Link>
             ))}
             <button
-              onClick={() => setIsAuthModalOpen(true)}
+              onClick={scrollToDownload}
               className="bg-brand-navy text-white px-6 py-2 text-xs uppercase tracking-[0.2em] font-medium hover:bg-brand-gold transition-all duration-300"
             >
-              Member Access
+              Download App
             </button>
           </div>
 
@@ -90,23 +95,20 @@ const PublicNavigation: React.FC = () => {
                 </Link>
               ))}
 
-              {/* Mobile Member Access Button */}
+              {/* Mobile Download App Button */}
               <button
                 onClick={() => {
                   closeMobileMenu();
-                  setIsAuthModalOpen(true);
+                  scrollToDownload();
                 }}
                 className="mt-8 bg-brand-navy text-white px-6 py-3 text-xs uppercase tracking-[0.2em] font-medium hover:bg-brand-gold transition-all duration-300"
               >
-                Member Access
+                Download App
               </button>
             </div>
           </div>
         </div>
       )}
-
-      {/* Auth Modal */}
-      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </>
   );
 };

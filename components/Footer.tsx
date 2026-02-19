@@ -34,6 +34,12 @@ const Footer: React.FC = () => {
             >
               Blog
             </Link>
+            <a
+              href="#download"
+              className="text-xs uppercase tracking-[0.2em] text-brand-navy/60 hover:text-brand-gold transition-colors"
+            >
+              Download App
+            </a>
           </nav>
         </div>
 

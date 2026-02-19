@@ -5,30 +5,7 @@ import AboutPage from './components/AboutPage';
 import ApproachPage from './components/ApproachPage';
 import BlogPage from './components/BlogPage';
 import BlogPost from './components/BlogPost';
-import Dashboard from './components/Dashboard';
-import AdminDashboard from './components/AdminDashboard';
 import PublicLayout from './components/PublicLayout';
-import { useAuth } from './context/AuthContext';
-
-// PrivateRoute component to protect authenticated routes
-interface PrivateRouteProps {
-  children: React.ReactNode;
-  requireAdmin?: boolean;
-}
-
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, requireAdmin = false }) => {
-  const { isAuthenticated, user } = useAuth();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/" replace />;
-  }
-
-  if (requireAdmin && !user?.isAdmin) {
-    return <Navigate to="/dashboard" replace />;
-  }
-
-  return <>{children}</>;
-};
 
 const App: React.FC = () => {
   return (
@@ -42,26 +19,6 @@ const App: React.FC = () => {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
         </Route>
-
-        {/* Protected User Routes */}
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-
-        {/* Protected Admin Routes */}
-        <Route
-          path="/admin"
-          element={
-            <PrivateRoute requireAdmin>
-              <AdminDashboard />
-            </PrivateRoute>
-          }
-        />
 
         {/* Catch-all: redirect to home */}
         <Route path="*" element={<Navigate to="/" replace />} />

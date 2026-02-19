@@ -180,14 +180,24 @@ const BlogPost: React.FC = () => {
       <section className="py-24 bg-brand-navy text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-serif text-4xl md:text-5xl mb-6">
-            Start Your Wellness Journey Today
+            Want a guided 180-day wellness journey?
           </h2>
-          <p className="text-white/80 text-lg leading-relaxed mb-10">
-            Join the 2Equilibrium community and transform your life with our proven 6-month program.
+          <p className="text-white/80 text-lg leading-relaxed mb-6">
+            Download 2Equilibrium — your first 30 days are free.
           </p>
-          <button className="bg-brand-gold text-brand-navy px-12 py-4 uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300">
-            Download the App
-          </button>
+          
+          <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-10">
+            <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/" className="bg-brand-gold text-brand-navy px-12 py-4 uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300">
+              Download for iOS
+            </a>
+            <div className="bg-white/10 text-white px-12 py-4 uppercase tracking-widest text-xs font-bold">
+              Android Coming Soon
+            </div>
+          </div>
         </div>
       </section>
     </div>

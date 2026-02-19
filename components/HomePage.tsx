@@ -1,51 +1,6 @@
 import React from 'react';
 import { Check, Star, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { PricingTier, TierLevel } from '../types';
-
-const PAYMENT_OPTIONS = [
-  {
-    id: 'monthly',
-    name: 'Monthly Plan',
-    price: 29,
-    period: 'month',
-    totalPrice: 29,
-    tagline: 'Flexible Monthly Billing',
-    savings: null,
-    features: [
-      '1-week FREE trial',
-      'Daily lesson unlocks',
-      'Daily reflection prompts',
-      'Basic movement suggestions',
-      'Current lesson offline',
-      'Extended journal access',
-      'Priority feature updates',
-      'Community forums'
-    ],
-    cta: 'Start Free Trial'
-  },
-  {
-    id: 'sixmonth',
-    name: '6-Month Plan',
-    price: 21.50,
-    period: 'month',
-    totalPrice: 129,
-    tagline: 'Pay in Full & Save',
-    savings: 45,
-    features: [
-      '1-week FREE trial',
-      'Daily lesson unlocks',
-      'Daily reflection prompts',
-      'Basic movement suggestions',
-      'Current lesson offline',
-      'Extended journal access',
-      'Priority feature updates',
-      'Community forums'
-    ],
-    cta: 'Start Free Trial',
-    isPopular: true
-  }
-];
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -57,21 +12,21 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in-up">
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-brand-navy mb-6">
-              Your Lifetime Wellness <span className="text-brand-gold">Companion</span>
+              Your 180-Day Guided <span className="text-brand-gold">Wellness Journey</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl uppercase tracking-wide font-bold text-brand-navy mb-8">
-              YOUR 6-MONTH TRANSFORMATION JOURNEY
+            <h2 className="text-xl md:text-2xl text-brand-navy/80 mb-8 font-light">
+              Daily lessons, journaling, nutrition tracking, and a supportive community — all in your pocket.
             </h2>
-            <p className="text-brand-navy/70 text-lg md:text-xl leading-relaxed max-w-lg mb-10 font-light border-l-2 border-brand-gold pl-6">
-              Start with our 30-day Foundation phase, then continue your transformation through four progressive phases over 6 months. Daily lessons unlock one at a time—mindful eating, gentle movement, and sustainable wellness habits.
-            </p>
+            <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-10">
+              <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
+            </div>
             <div className="flex flex-col sm:flex-row gap-5">
-              <button className="bg-brand-navy text-white px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-all duration-300 shadow-xl">
-                Download the App
-              </button>
-              <button className="bg-transparent text-brand-navy border border-brand-navy/20 hover:border-brand-navy px-10 py-4 uppercase tracking-widest text-xs font-bold transition-all">
-                Start Free Trial
-              </button>
+              <a href="#download" className="bg-brand-navy text-white px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-all duration-300 shadow-xl text-center">
+                Download for iOS
+              </a>
+              <div className="bg-brand-navy/10 text-brand-navy px-10 py-4 uppercase tracking-widest text-xs font-bold text-center">
+                Android Coming Soon
+              </div>
             </div>
           </div>
 
@@ -239,84 +194,70 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-24 bg-brand-cream">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-5xl md:text-6xl text-brand-navy mb-6">Choose Your Payment Plan</h2>
-            <p className="text-brand-navy/60 text-lg max-w-2xl mx-auto">
-              Same great features, flexible payment options. Both plans include a 1-week FREE trial.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {PAYMENT_OPTIONS.map((option) => (
-              <div
-                key={option.id}
-                className={`bg-brand-white p-8 shadow-xl relative ${option.isPopular ? 'ring-4 ring-brand-gold scale-105' : ''}`}
-              >
-                {option.isPopular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-gold text-white text-xs uppercase tracking-widest px-6 py-2 rounded-full font-bold">
-                    Best Value
-                  </div>
-                )}
-
-                <div className="mb-6">
-                  <h3 className="font-serif text-3xl text-brand-navy mb-2">{option.name}</h3>
-                  <p className="text-brand-navy/60 italic">{option.tagline}</p>
-                </div>
-
-                <div className="mb-8">
-                  {option.id === 'monthly' ? (
-                    <>
-                      <p className="text-5xl font-bold text-brand-navy mb-2">
-                        ${option.price}
-                        <span className="text-lg font-normal text-brand-navy/60">/month</span>
-                      </p>
-                      <p className="text-sm text-brand-navy/60">
-                        Billed monthly • Cancel anytime
-                      </p>
-                    </>
-                  ) : (
-                    <>
-                      <p className="text-5xl font-bold text-brand-navy mb-2">
-                        ${option.totalPrice}
-                        <span className="text-lg font-normal text-brand-navy/60">/6 months</span>
-                      </p>
-                      <p className="text-sm text-brand-navy/60 mb-2">
-                        ${option.price}/month equivalent
-                      </p>
-                      <div className="inline-block bg-brand-gold/20 text-brand-gold px-3 py-1 rounded-full text-sm font-bold">
-                        Save ${option.savings}
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  {option.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-brand-navy/70">
-                      <Check className="w-5 h-5 text-brand-gold flex-shrink-0 mt-1" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <button className="w-full bg-brand-navy text-white py-4 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-all duration-300">
-                  {option.cta}
-                </button>
+      {/* App Download Section */}
+      <section id="download" className="py-24 bg-brand-cream">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-serif text-5xl md:text-6xl text-brand-navy mb-6">Your 180-Day Guided Wellness Journey</h2>
+              <p className="text-brand-navy/70 text-xl leading-relaxed mb-8">
+                Daily lessons, journaling, nutrition tracking, and a supportive community — all in your pocket.
+              </p>
+              
+              <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-8">
+                <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
               </div>
-            ))}
-          </div>
 
-          {/* Money-back guarantee */}
-          <div className="mt-12 flex items-center justify-center gap-3 bg-brand-white/50 p-6 rounded-lg max-w-2xl mx-auto">
-            <svg className="w-6 h-6 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            <p className="text-brand-navy/80 font-medium">
-              <span className="font-bold text-brand-navy">30-day money-back guarantee.</span> No questions asked.
-            </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <Check className="w-6 h-6 text-brand-gold flex-shrink-0" />
+                  <span className="text-brand-navy/80 text-lg">Daily lessons that unlock progressively</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Check className="w-6 h-6 text-brand-gold flex-shrink-0" />
+                  <span className="text-brand-navy/80 text-lg">Guided journaling and reflection prompts</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Check className="w-6 h-6 text-brand-gold flex-shrink-0" />
+                  <span className="text-brand-navy/80 text-lg">Nutrition tracking made simple</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Check className="w-6 h-6 text-brand-gold flex-shrink-0" />
+                  <span className="text-brand-navy/80 text-lg">Supportive community access</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Check className="w-6 h-6 text-brand-gold flex-shrink-0" />
+                  <span className="text-brand-navy/80 text-lg">Gentle movement suggestions</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="#" className="bg-brand-navy text-white px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-all duration-300 shadow-xl text-center">
+                  Download for iOS
+                </a>
+                <div className="bg-brand-navy/10 text-brand-navy px-8 py-4 uppercase tracking-widest text-xs font-bold text-center">
+                  Android Coming Soon
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              {/* Phone mockup placeholder */}
+              <div className="bg-gradient-to-br from-brand-navy via-brand-gold to-brand-cream p-8 rounded-3xl shadow-2xl max-w-md mx-auto">
+                <div className="bg-white rounded-2xl p-6 text-center">
+                  <div className="w-16 h-16 bg-brand-gold/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-2xl">📱</span>
+                  </div>
+                  <h4 className="font-serif text-2xl text-brand-navy mb-2">2EQUILIBRIUM</h4>
+                  <p className="text-brand-navy/60 text-sm mb-4">Your wellness journey starts here</p>
+                  <div className="space-y-2">
+                    <div className="h-3 bg-brand-cream rounded-full"></div>
+                    <div className="h-3 bg-brand-cream rounded-full w-3/4"></div>
+                    <div className="h-3 bg-brand-cream rounded-full w-1/2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -327,12 +268,22 @@ const HomePage: React.FC = () => {
           <h2 className="font-serif text-4xl md:text-5xl mb-6">
             Your Wellness Journey Starts Today
           </h2>
-          <p className="text-white/80 text-lg leading-relaxed mb-10">
-            Download the 2Equilibrium app and begin your transformation journey. With daily lessons that unlock one at a time, journaling tools to track your progress, and a gentle approach that honors your pace—transformation has never felt this natural. Start your free trial and discover what sustainable wellness truly feels like.
+          <p className="text-white/80 text-lg leading-relaxed mb-6">
+            Download the 2Equilibrium app and begin your transformation journey. With daily lessons that unlock one at a time, journaling tools to track your progress, and a gentle approach that honors your pace—transformation has never felt this natural.
           </p>
-          <button className="bg-brand-gold text-brand-navy px-12 py-4 uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300">
-            Download the App
-          </button>
+          
+          <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-10">
+            <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#download" className="bg-brand-gold text-brand-navy px-12 py-4 uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300">
+              Download for iOS
+            </a>
+            <div className="bg-white/10 text-white px-12 py-4 uppercase tracking-widest text-xs font-bold">
+              Android Coming Soon
+            </div>
+          </div>
         </div>
       </section>
     </div>
