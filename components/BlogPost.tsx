@@ -183,11 +183,10 @@ const BlogPost: React.FC = () => {
             Want a guided 180-day wellness journey?
           </h2>
           <p className="text-white/80 text-lg leading-relaxed mb-6">
-            Download 2Equilibrium — your first 30 days are free.
+            Download 2Equilibrium and start your wellness journey today.
           </p>
           
           <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-10">
-            <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

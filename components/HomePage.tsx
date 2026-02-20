@@ -17,9 +17,6 @@ const HomePage: React.FC = () => {
             <h2 className="text-xl md:text-2xl text-brand-navy/80 mb-8 font-light">
               Daily lessons, journaling, nutrition tracking, and a supportive community — all in your pocket.
             </h2>
-            <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-10">
-              <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
-            </div>
             <div className="flex flex-col sm:flex-row gap-5">
               <a href="#download" className="bg-brand-navy text-white px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-all duration-300 shadow-xl text-center">
                 Download for iOS
@@ -204,10 +201,6 @@ const HomePage: React.FC = () => {
                 Daily lessons, journaling, nutrition tracking, and a supportive community — all in your pocket.
               </p>
               
-              <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-8">
-                <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
-              </div>
-
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <Check className="w-6 h-6 text-brand-gold flex-shrink-0" />
@@ -271,10 +264,6 @@ const HomePage: React.FC = () => {
           <p className="text-white/80 text-lg leading-relaxed mb-6">
             Download the 2Equilibrium app and begin your transformation journey. With daily lessons that unlock one at a time, journaling tools to track your progress, and a gentle approach that honors your pace—transformation has never felt this natural.
           </p>
-          
-          <div className="bg-brand-gold/20 text-brand-gold px-6 py-3 rounded-full inline-block mb-10">
-            <span className="font-bold text-sm uppercase tracking-widest">First 30 Days Free</span>
-          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#download" className="bg-brand-gold text-brand-navy px-12 py-4 uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300">
