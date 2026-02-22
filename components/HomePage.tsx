@@ -136,7 +136,7 @@ const HomePage: React.FC = () => {
           <div className="relative h-[500px] lg:h-[600px] w-full mt-10 lg:mt-0">
             <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
             <img
-              src="/images/2equilibrium-hero.png"
+              src="/images/homepage.png"
               alt="Wellness Journey"
               className="absolute inset-0 w-full h-full object-cover z-10 grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out shadow-2xl"
             />
