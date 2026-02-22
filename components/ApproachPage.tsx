@@ -14,8 +14,8 @@ const ApproachPage: React.FC = () => {
       answer: 'No. 2Equilibrium is a holistic wellness system, not a restrictive diet. We focus on building sustainable habits, understanding your relationship with food, and integrating wellness into your lifestyle. The app teaches you principles of balanced nutrition, mindful eating, and stress management that last a lifetime—not just weeks.'
     },
     {
-      question: 'How is my plan personalized without personal coaching?',
-      answer: 'The app uses intelligent algorithms and evidence-based frameworks to create a plan tailored to your unique profile. You\'ll complete an in-depth assessment covering your health history, dietary preferences, lifestyle habits, and goals. The app then generates customized meal suggestions, movement recommendations, and wellness strategies specifically for you.'
+      question: 'How does the app guide me without personal coaching?',
+      answer: 'The app is built on evidence-based frameworks developed by a certified Nutrition and Lifestyle Coach. Through six progressive phases, daily lessons teach you how to understand your own body, build healthy habits, and create a wellness approach that works for your life. With journaling prompts, chapter quizzes, and actionable steps, you\'ll develop the knowledge and skills to become your own wellness guide.'
     },
     {
       question: 'Can I track my progress in the app?',
