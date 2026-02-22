@@ -7,7 +7,7 @@ const ApproachPage: React.FC = () => {
   const faqs = [
     {
       question: 'How does the 2Equilibrium app work?',
-      answer: 'The 2Equilibrium app is your comprehensive wellness companion. After creating your profile, you\'ll receive a personalized wellness plan based on your goals, preferences, and lifestyle. The app guides you through daily nutrition recommendations, mindful eating practices, progress tracking, and educational content—all designed to create sustainable transformation.'
+      answer: 'The 2Equilibrium app is your comprehensive wellness companion. Through six progressive phases, you\'ll learn how to create your own wellness plan tailored to your goals, preferences, and lifestyle. The app guides you through daily lessons, mindful eating practices, progress tracking, journaling, and educational content—all designed to create sustainable transformation.'
     },
     {
       question: 'Is this another diet program?',
