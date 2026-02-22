@@ -7,7 +7,7 @@ const AboutPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
         <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[500px] lg:h-[600px] w-full order-2 lg:order-1">
+          <div className="relative h-[250px] lg:h-[300px] w-full order-2 lg:order-1">
             <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
             <img
               src="/images/GraziellaBio.jpg"
@@ -30,14 +30,25 @@ const AboutPage: React.FC = () => {
       {/* Welcome & Mission Section */}
       <section className="py-24 bg-brand-white">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-8">Welcome!</h2>
-          <div className="space-y-6 text-brand-navy/70 text-lg leading-relaxed">
-            <p>
-              I'm Graziella Cialone de Souza—a Nutrition and Lifestyle Coach who spent years helping clients one-on-one before realizing I could reach more people through technology. The 2Equilibrium app is my wellness system transformed into an accessible, lifetime companion that empowers you to transform at your own pace.
-            </p>
-            <p>
-              With extensive certifications across multiple disciplines, I've distilled decades of knowledge into daily lessons designed for busy lives. This isn't generic advice—it's proven strategies that worked for hundreds of clients, now available in your pocket whenever you need them.
-            </p>
+          <div className="relative">
+            <div className="relative float-left mr-8 mb-6 w-full sm:w-[400px] h-[250px] sm:h-[300px]">
+              <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
+              <img
+                src="/images/GraziellaBio.jpg"
+                alt="Graziella DeSouza"
+                className="absolute inset-0 w-full h-full object-cover z-10 grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out shadow-2xl"
+              />
+            </div>
+
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-8">Welcome!</h2>
+            <div className="space-y-6 text-brand-navy/70 text-lg leading-relaxed">
+              <p>
+                I'm Graziella Cialone de Souza—a Nutrition and Lifestyle Coach who spent years helping clients one-on-one before realizing I could reach more people through technology. The 2Equilibrium app is my wellness system transformed into an accessible, lifetime companion that empowers you to transform at your own pace.
+              </p>
+              <p>
+                With extensive certifications across multiple disciplines, I've distilled decades of knowledge into daily lessons designed for busy lives. This isn't generic advice—it's proven strategies that worked for hundreds of clients, now available in your pocket whenever you need them.
+              </p>
+            </div>
           </div>
         </div>
       </section>
