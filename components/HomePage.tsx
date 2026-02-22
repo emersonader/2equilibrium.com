@@ -158,7 +158,7 @@ const HomePage: React.FC = () => {
       <section className="py-24 bg-brand-cream">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px] lg:h-[600px] w-full">
+            <div className="relative h-[250px] lg:h-[300px] w-full">
               <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
               <img
                 src="/images/GraziellaBio.jpg"
