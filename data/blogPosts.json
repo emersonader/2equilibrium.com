@@ -490,51 +490,6 @@
     ]
   },
   {
-    "id": "welcome-to-2equilibrium",
-    "title": "Welcome to 2Equilibrium: Your Journey Begins Here",
-    "author": "Graziella De Souza",
-    "date": "2026-01-04",
-    "image": "/images/Florhome.png",
-    "excerpt": "Discover how 2Equilibrium can transform your wellness journey through our proven 6-month program starting with the 30-day Foundation phase.",
-    "content": [
-      {
-        "type": "text",
-        "value": "Welcome to the 2Equilibrium blog! I'm thrilled to share this space with you as we explore wellness, balance, and sustainable transformation together."
-      },
-      {
-        "type": "heading",
-        "value": "Why I Created 2Equilibrium"
-      },
-      {
-        "type": "text",
-        "value": "After years of coaching clients one-on-one, I realized that sustainable wellness isn't about restriction or punishment—it's about finding your equilibrium. The 2Equilibrium app is my way of sharing everything I've learned with more people, making expert guidance accessible to anyone ready to transform their life."
-      },
-      {
-        "type": "image",
-        "src": "/images/GraziellaBio.jpg",
-        "alt": "Graziella De Souza",
-        "caption": "Your wellness guide"
-      },
-      {
-        "type": "heading",
-        "value": "What Makes Us Different"
-      },
-      {
-        "type": "text",
-        "value": "Unlike other wellness programs, we focus on gentle, progressive change. Our 30-day Foundation phase unlocks one lesson per day—no overwhelm, just steady growth. You'll learn mindful eating, gentle movement, and self-compassion practices that actually stick."
-      },
-      {
-        "type": "text",
-        "value": "Ready to begin? Download the app and start your free trial today!"
-      }
-    ],
-    "tags": [
-      "wellness",
-      "introduction",
-      "getting started"
-    ]
-  },
-  {
     "id": "mindful-eating-basics",
     "title": "The Power of Mindful Eating: Transform Your Relationship with Food",
     "author": "Graziella De Souza",
