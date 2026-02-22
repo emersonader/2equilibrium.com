@@ -115,7 +115,7 @@ const ApproachPage: React.FC = () => {
             <div className="bg-brand-white p-8 shadow-lg hover:shadow-xl transition-shadow">
               <h3 className="font-serif text-2xl text-brand-navy mb-4">Innovative Approach</h3>
               <p className="text-brand-navy/70 leading-relaxed">
-                Combining cutting-edge science with proven coaching methodologies, we leverage genetics-based insights, positive psychology, and personalized strategies. This isn't another fad diet—it's an evidence-based system designed for your unique biology and psychology.
+                Combining cutting-edge science with proven coaching methodologies, the app teaches you how to leverage genetics-based insights, positive psychology, and practical strategies. This isn't another fad diet—it's an evidence-based learning system that empowers you to understand your own biology and psychology.
               </p>
             </div>
           </div>
@@ -164,7 +164,7 @@ const ApproachPage: React.FC = () => {
             Take the Next Step in Your Journey
           </h2>
           <p className="text-white/80 text-lg leading-relaxed mb-10">
-            Ready to transform your lifestyle and achieve your wellness goals? Contact 2Equilibrium today to discover a personalized weight loss plan tailored just for you. Embrace the change and start your journey towards a healthier, balanced life.
+            Ready to transform your lifestyle and achieve your wellness goals? Download 2Equilibrium today and learn how to build a wellness plan that works for your life. Embrace the change and start your journey towards a healthier, balanced life.
           </p>
           <button className="bg-brand-gold text-brand-navy px-12 py-4 uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300">
             Get Your Plan

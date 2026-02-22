@@ -65,7 +65,7 @@ const AboutPage: React.FC = () => {
           </div>
 
           <p className="text-brand-navy/70 text-lg leading-relaxed mt-12 text-center">
-            These credentials allow me to provide a comprehensive, personalized approach that goes beyond conventional programs.
+            These credentials allow me to provide a comprehensive, holistic approach that goes beyond conventional programs.
           </p>
         </div>
       </section>
