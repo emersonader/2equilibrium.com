@@ -138,7 +138,7 @@ const BlogPost: React.FC = () => {
 
           {/* Featured Image */}
           {post.image && (
-            <div className="mb-12 shadow-2xl overflow-hidden">
+            <div className="mb-12 shadow-2xl overflow-hidden mx-auto" style={{ maxWidth: '600px' }}>
               <img
                 src={post.image}
                 alt={post.title}
