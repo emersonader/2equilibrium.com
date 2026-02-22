@@ -94,10 +94,10 @@ const AboutPage: React.FC = () => {
           <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-8">What You'll Experience</h2>
           <div className="space-y-6 text-brand-navy/70 text-lg leading-relaxed">
             <p>
-              The 2Equilibrium app is designed as a 6-month transformative journey through four progressive phases. You'll begin with the 30-day Foundation phase—6 chapters with daily lessons that unlock progressively—no overwhelm, just steady growth. Journal your mood and energy, track progress with visual analytics, and complete chapter quizzes to reinforce learning.
+              The 2Equilibrium app is designed as a 6-month transformative journey through six progressive phases. You'll begin with the 30-day Foundation phase—6 chapters with daily lessons that unlock progressively—no overwhelm, just steady growth. Journal your mood and energy, track progress with visual analytics, and complete chapter quizzes to reinforce learning.
             </p>
             <p>
-              Every lesson includes action steps, reflection prompts, movement suggestions, daily affirmations, and nourishment tips. It's comprehensive yet manageable—designed for real people with busy lives who want sustainable transformation, not quick fixes that fade. As you complete Foundation, future phases (Momentum, Mastery, and Evolution) will deepen your practice.
+              Every lesson includes action steps, reflection prompts, movement suggestions, daily affirmations, and nourishment tips. It's comprehensive yet manageable—designed for real people with busy lives who want sustainable transformation, not quick fixes that fade. As you complete Foundation, future phases (Momentum, Integration, Mastery, Excellence, and Legacy) will deepen your practice.
             </p>
             <p className="font-serif text-xl text-brand-gold italic mt-8">
               Here's to your wellness journey,<br />

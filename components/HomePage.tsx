@@ -82,15 +82,15 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4-Phase Journey Overview */}
+      {/* 6-Phase Journey Overview */}
       <section className="py-24 bg-brand-navy text-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-serif text-4xl md:text-5xl mb-6 text-center">Your Complete Wellness Journey</h2>
           <p className="text-white/80 text-lg text-center mb-16 max-w-3xl mx-auto">
-            The 2Equilibrium app is designed as a progressive journey through four transformative phases. Start with the 30-day Foundation, then continue growing through advanced phases (coming soon).
+            The 2Equilibrium app is designed as a progressive journey through six transformative phases. Start with the 30-day Foundation, then continue growing through advanced phases (coming soon).
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg">
               <div className="text-brand-gold text-sm font-bold mb-2">PHASE 1 • 30 DAYS</div>
               <h3 className="font-serif text-2xl mb-3">Foundation</h3>
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="bg-white/5 backdrop-blur p-6 rounded-lg">
-              <div className="text-white/50 text-sm font-bold mb-2">PHASE 2 • 60 DAYS</div>
+              <div className="text-white/50 text-sm font-bold mb-2">PHASE 2 • 30 DAYS</div>
               <h3 className="font-serif text-2xl mb-3 text-white/70">Momentum</h3>
               <p className="text-white/50 text-sm leading-relaxed">
                 Deepening Your Practice. Build on your foundation with advanced strategies, deeper insights, and sustained progress.
@@ -110,19 +110,37 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="bg-white/5 backdrop-blur p-6 rounded-lg">
-              <div className="text-white/50 text-sm font-bold mb-2">PHASE 3 • 90 DAYS</div>
-              <h3 className="font-serif text-2xl mb-3 text-white/70">Mastery</h3>
+              <div className="text-white/50 text-sm font-bold mb-2">PHASE 3 • 30 DAYS</div>
+              <h3 className="font-serif text-2xl mb-3 text-white/70">Integration</h3>
               <p className="text-white/50 text-sm leading-relaxed">
-                Becoming Your Own Guide. Develop mastery and create your personalized wellness protocol for life.
+                Lifestyle Design. Optimize your environment, master advanced eating strategies, unlock metabolic wisdom, and achieve mental mastery.
               </p>
               <div className="mt-4 text-white/40 font-bold text-xs">COMING SOON</div>
             </div>
 
             <div className="bg-white/5 backdrop-blur p-6 rounded-lg">
-              <div className="text-white/50 text-sm font-bold mb-2">PHASE 4 • 180 DAYS</div>
-              <h3 className="font-serif text-2xl mb-3 text-white/70">Evolution</h3>
+              <div className="text-white/50 text-sm font-bold mb-2">PHASE 4 • 30 DAYS</div>
+              <h3 className="font-serif text-2xl mb-3 text-white/70">Mastery</h3>
               <p className="text-white/50 text-sm leading-relaxed">
-                Lifelong Wellness Integration. Integrate wellness as a permanent lifestyle and inspire others on their journey.
+                Resilience & Recovery. Build nutritional intelligence, master functional movement, and optimize your energy and vitality for life.
+              </p>
+              <div className="mt-4 text-white/40 font-bold text-xs">COMING SOON</div>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur p-6 rounded-lg">
+              <div className="text-white/50 text-sm font-bold mb-2">PHASE 5 • 30 DAYS</div>
+              <h3 className="font-serif text-2xl mb-3 text-white/70">Excellence</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Peak Performance. Advanced metabolic optimization, performance and recovery techniques, lifestyle medicine, and environmental mastery.
+              </p>
+              <div className="mt-4 text-white/40 font-bold text-xs">COMING SOON</div>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur p-6 rounded-lg">
+              <div className="text-white/50 text-sm font-bold mb-2">PHASE 6 • 30 DAYS</div>
+              <h3 className="font-serif text-2xl mb-3 text-white/70">Legacy</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Lifelong Wellness Integration. Manage social influences, embrace continuous evolution, and become a leader who inspires wellness in others.
               </p>
               <div className="mt-4 text-white/40 font-bold text-xs">COMING SOON</div>
             </div>
