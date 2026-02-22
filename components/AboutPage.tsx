@@ -5,22 +5,13 @@ const AboutPage: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[250px] lg:h-[300px] w-full order-2 lg:order-1">
-            <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
-            <img
-              src="/images/GraziellaBio.jpg"
-              alt="Graziella DeSouza"
-              className="absolute inset-0 w-full h-full object-cover z-10 grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out shadow-2xl"
-            />
-          </div>
-
-          <div className="animate-fade-in-up order-1 lg:order-2">
+      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
+        <div className="max-w-7xl mx-auto px-6 py-24 text-center">
+          <div className="animate-fade-in-up">
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-brand-navy mb-8">
               About <span className="text-brand-gold italic">Graziella</span>
             </h1>
-            <p className="text-brand-navy/70 text-lg leading-relaxed font-light italic border-l-2 border-brand-gold pl-6">
+            <p className="text-brand-navy/70 text-lg leading-relaxed font-light italic max-w-2xl mx-auto">
               A passionate and dedicated Health Coach with a mission to empower individuals to achieve their best selves.
             </p>
           </div>
