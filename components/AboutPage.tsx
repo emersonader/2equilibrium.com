@@ -5,8 +5,8 @@ const AboutPage: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
-        <div className="max-w-7xl mx-auto px-6 py-24 text-center">
+      <section className="relative min-h-[40vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
+        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <div className="animate-fade-in-up">
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-brand-navy mb-8">
               About <span className="text-brand-gold italic">Graziella</span>
@@ -19,7 +19,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Welcome & Mission Section */}
-      <section className="py-24 bg-brand-white">
+      <section className="pt-0 pb-24 bg-brand-white">
         <div className="max-w-4xl mx-auto px-6">
           <div className="relative">
             <div className="relative float-left mr-8 mb-6 w-full sm:w-[400px] h-[250px] sm:h-[300px]">
