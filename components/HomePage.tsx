@@ -296,18 +296,57 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="relative">
-              {/* Phone mockup placeholder */}
-              <div className="bg-gradient-to-br from-brand-navy via-brand-gold to-brand-cream p-8 rounded-3xl shadow-2xl max-w-md mx-auto">
-                <div className="bg-white rounded-2xl p-6 text-center">
-                  <div className="w-16 h-16 bg-brand-gold/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl">📱</span>
+              {/* App Preview Card */}
+              <div className="bg-gradient-to-br from-brand-navy via-brand-navy to-brand-gold/30 p-1 rounded-3xl shadow-2xl max-w-md mx-auto">
+                <div className="bg-brand-navy rounded-3xl p-8 space-y-6">
+                  {/* App Header */}
+                  <div className="text-center mb-2">
+                    <h4 className="font-serif text-2xl text-brand-cream mb-1">2Equilibrium</h4>
+                    <p className="text-brand-cream/40 text-xs uppercase tracking-[0.2em]">180-Day Wellness Journey</p>
                   </div>
-                  <h4 className="font-serif text-2xl text-brand-navy mb-2">2EQUILIBRIUM</h4>
-                  <p className="text-brand-navy/60 text-sm mb-4">Your wellness journey starts here</p>
-                  <div className="space-y-2">
-                    <div className="h-3 bg-brand-cream rounded-full"></div>
-                    <div className="h-3 bg-brand-cream rounded-full w-3/4"></div>
-                    <div className="h-3 bg-brand-cream rounded-full w-1/2"></div>
+
+                  {/* Today's Lesson Preview */}
+                  <div className="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/5">
+                    <p className="text-brand-gold text-xs uppercase tracking-[0.15em] font-bold mb-2">Today's Lesson</p>
+                    <h5 className="text-brand-cream font-serif text-lg mb-1">Awakening Your Wellness Path</h5>
+                    <p className="text-brand-cream/50 text-sm">Day 1 · Phase 1: Foundation</p>
+                    <div className="mt-3 bg-brand-gold/20 rounded-full h-2">
+                      <div className="bg-brand-gold rounded-full h-2 w-1/12"></div>
+                    </div>
+                  </div>
+
+                  {/* Quick Stats */}
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-white/5 rounded-xl p-3 text-center">
+                      <p className="text-brand-gold text-xl font-bold">180</p>
+                      <p className="text-brand-cream/40 text-xs mt-1">Lessons</p>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-3 text-center">
+                      <p className="text-brand-gold text-xl font-bold">36</p>
+                      <p className="text-brand-cream/40 text-xs mt-1">Quizzes</p>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-3 text-center">
+                      <p className="text-brand-gold text-xl font-bold">6</p>
+                      <p className="text-brand-cream/40 text-xs mt-1">Phases</p>
+                    </div>
+                  </div>
+
+                  {/* Features List */}
+                  <div className="space-y-3">
+                    {['Daily guided lessons', 'Mood & energy journaling', 'Nutrition tracking', 'Progress badges'].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-brand-gold/20 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-3 h-3 text-brand-gold" />
+                        </div>
+                        <span className="text-brand-cream/70 text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Price Tag */}
+                  <div className="text-center pt-2">
+                    <p className="text-brand-cream/40 text-xs uppercase tracking-wider mb-1">Starting at</p>
+                    <p className="text-brand-gold font-serif text-2xl font-bold">$19.99<span className="text-brand-cream/40 text-sm font-normal">/month</span></p>
                   </div>
                 </div>
               </div>
