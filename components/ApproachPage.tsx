@@ -52,7 +52,7 @@ const ApproachPage: React.FC = () => {
           <div className="relative h-[400px] md:h-[500px] w-full">
             <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
             <img
-              src="/images/Florhome.png"
+              src="/images/path.png"
               alt="Healthy Food and Wellness"
               className="absolute inset-0 w-full h-full object-cover z-10 shadow-2xl"
             />
