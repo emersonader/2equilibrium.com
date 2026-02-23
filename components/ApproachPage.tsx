@@ -47,14 +47,14 @@ const ApproachPage: React.FC = () => {
       </section>
 
       {/* Approach Image Section */}
-      <section className="py-24 bg-brand-white">
+      <section className="pt-8 pb-24 bg-brand-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative h-[400px] md:h-[500px] w-full">
             <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
             <img
               src="/images/path.png"
               alt="Healthy Food and Wellness"
-              className="absolute inset-0 w-full h-full object-cover z-10 shadow-2xl"
+              className="absolute inset-0 w-full h-full object-cover z-10 grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out shadow-2xl"
             />
           </div>
         </div>
