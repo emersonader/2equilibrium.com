@@ -12,6 +12,7 @@ const PublicNavigation: React.FC = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/approach', label: 'Approach' },
+    { path: '/pricing', label: 'Pricing' },
     { path: '/blog', label: 'Blog' },
   ];
 

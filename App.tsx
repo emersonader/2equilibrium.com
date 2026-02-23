@@ -5,6 +5,7 @@ import AboutPage from './components/AboutPage';
 import ApproachPage from './components/ApproachPage';
 import BlogPage from './components/BlogPage';
 import BlogPost from './components/BlogPost';
+import PricingPage from './components/PricingPage';
 import PublicLayout from './components/PublicLayout';
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/approach" element={<ApproachPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
         </Route>
