@@ -30,8 +30,8 @@ const ApproachPage: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
-        <div className="max-w-7xl mx-auto px-6 py-24">
+      <section className="relative min-h-[40vh] flex items-center bg-gradient-to-br from-brand-blue via-brand-cream to-brand-cream">
+        <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-brand-navy mb-6">
               Discover Your Path to <span className="text-brand-gold italic">Wellness</span>
@@ -47,7 +47,7 @@ const ApproachPage: React.FC = () => {
       </section>
 
       {/* Approach Image Section */}
-      <section className="pt-8 pb-24 bg-brand-white">
+      <section className="pt-0 pb-24 bg-brand-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative h-[400px] md:h-[500px] w-full">
             <div className="absolute inset-4 border border-brand-gold/30 z-20"></div>
