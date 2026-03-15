@@ -6,6 +6,8 @@ import ApproachPage from './components/ApproachPage';
 import BlogPage from './components/BlogPage';
 import BlogPost from './components/BlogPost';
 import PricingPage from './components/PricingPage';
+import PrivacyPage from './components/PrivacyPage';
+import TermsPage from './components/TermsPage';
 import PublicLayout from './components/PublicLayout';
 
 const App: React.FC = () => {
@@ -20,6 +22,8 @@ const App: React.FC = () => {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Route>
 
         {/* Catch-all: redirect to home */}
