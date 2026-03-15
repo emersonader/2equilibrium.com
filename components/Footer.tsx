@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer className="py-16 bg-brand-white border-t border-brand-navy/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          <img src="/images/2e-logo.png" alt="2Equilibrium" className="h-12 mx-auto mb-6" />
+          <img src="/images/2e-logo.png" alt="2Equilibrium" className="h-20 mx-auto mb-6" />
           <p className="text-brand-navy/50 text-sm mb-4">This is Graziella's private world.</p>
 
           <nav className="flex justify-center gap-8 mb-6">
