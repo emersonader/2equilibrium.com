@@ -71,14 +71,17 @@ export default async function handler(req, res) {
     }
 
     // Step 2: Delete all user data from Supabase
-    const { data: user, error: userError } = await supabase.auth.admin.getUserById(email);
+    // Find user by email (listUsers, not getUserById which takes UUID)
+    const { data: userList, error: userError } = await supabase.auth.admin.listUsers();
     
-    if (userError && userError.message !== 'User not found') {
-      throw new Error(`Failed to find user: ${userError.message}`);
+    if (userError) {
+      throw new Error(`Failed to list users: ${userError.message}`);
     }
 
-    if (user?.user) {
-      const userId = user.user.id;
+    const foundUser = userList?.users?.find(u => u.email === email);
+
+    if (foundUser) {
+      const userId = foundUser.id;
       console.log(`[DELETE ACCOUNT] Found Supabase user: ${userId}`);
 
       // Delete user data in order (respecting foreign key constraints)
@@ -123,6 +126,7 @@ export default async function handler(req, res) {
       console.log(`[DELETE ACCOUNT] Successfully deleted user: ${userId}`);
     } else {
       console.log(`[DELETE ACCOUNT] No Supabase user found for email: ${email}`);
+      // Still return success — Stripe data was cleaned up above
     }
 
     return res.status(200).json({ 
