@@ -30,9 +30,8 @@ const PublicNavigation: React.FC = () => {
       <nav className="fixed w-full z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-navy/5">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/images/2e-icon-transparent.png" alt="" className="h-8 w-8" />
-            <span className="font-serif text-2xl font-bold tracking-tight text-brand-navy">2EQUILIBRIUM</span>
+          <Link to="/" className="font-serif text-2xl font-bold tracking-tight hover:opacity-80 transition-opacity">
+            <span className="text-brand-gold">2</span><span className="text-brand-navy">EQUILIBRIUM</span>
           </Link>
 
           {/* Desktop Navigation */}
