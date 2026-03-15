@@ -31,7 +31,7 @@ const PublicNavigation: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="hover:opacity-80 transition-opacity">
-            <img src="/images/2e-logo.png" alt="2Equilibrium" className="h-7" />
+            <img src="/images/2e-logo.png" alt="2Equilibrium" className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}
